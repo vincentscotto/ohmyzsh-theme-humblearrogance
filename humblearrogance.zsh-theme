@@ -16,6 +16,22 @@ DEFAULT="%F{#2196f3}"
 DARK_GREEN="%F{#22ad00}"
 CHAR_ARROW="%F${DARK_GREEN}»"           # ➜ › »
 
+local git_prompt='$(git_prompt_info)'
+
+# git prompt info
+git_prompt_info() {
+  if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
+    local branch_name=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    local git_status=$(git status --short 2>/dev/null)
+    local dirty_flag="%F{red}✗%f"
+
+    if [ -n "$git_status" ]; then
+      dirty_flag="%F{yellow}✗%f"
+    fi
+
+    echo "$branch_name $dirty_flag"
+  fi
+}
 # generate dashes
 generate_dashes() {
   local dashes=""
@@ -35,7 +51,7 @@ DASHED_LINE="$(generate_dashes)"
 #${DEFAULT}in
 #${PROMPT_HOST_COLOR}%m@
 PROMPT="${PROMPT_DASHES_COLOR}${DASHED_LINE}%f
-${DARK_GREEN}[${PROMPT_DIR_COLOR}%~${DARK_GREEN}] ${PROMPT_GIT_COLOR}$(git_prompt_info) ${PROMPT_SYMBOL_COLOR}%f
+${DARK_GREEN}[${PROMPT_DIR_COLOR}%~${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
 ${CHAR_ARROW}%f "
 
 RPROMPT="${RPROMPT_TIME_COLOR}%T %f"
