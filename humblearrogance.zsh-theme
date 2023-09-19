@@ -5,7 +5,7 @@
 # theme colors
 PROMPT_DASHES_COLOR="%F{#2f3b54}"       # dashes
 PROMPT_USER_COLOR="%F{green}"           # user
-PROMPT_HOST_COLOR="%F{#77e65c}"         # host
+PROMPT_HOST_COLOR="${LIGHT_GREEN}"      # host
 PROMPT_SEPARATOR_COLOR="%F{green}"      # separator
 PROMPT_DIR_COLOR="%F{#8eec77}"          # directory
 PROMPT_GIT_COLOR="%F{green}"            # git info
@@ -14,9 +14,12 @@ RPROMPT_TIME_COLOR="%F{#ffce06}"        # right (time)
 DARK_GREY="%F{#2f3b54}"
 DEFAULT="%F{#2196f3}"
 DARK_GREEN="%F{#22ad00}"
-CHAR_ARROW="%F${DARK_GREEN}»"           # ➜ › »
+LIGHT_GREEN="%F{#77e65c}"
+CHAR_ARROW="%F${DARK_GREEN}»"           # ❯ ➜ › »
 
 local git_prompt='$(git_prompt_info)'
+local user_prompt='%n'
+local host_prompt='%M'
 
 # git prompt info
 git_prompt_info() {
@@ -32,6 +35,7 @@ git_prompt_info() {
     echo "$branch_name $dirty_flag"
   fi
 }
+
 # generate dashes
 generate_dashes() {
   local dashes=""
@@ -51,10 +55,10 @@ DASHED_LINE="$(generate_dashes)"
 #${DEFAULT}in
 #${PROMPT_HOST_COLOR}%m@
 PROMPT="${PROMPT_DASHES_COLOR}${DASHED_LINE}%f
-${DARK_GREEN}[${PROMPT_DIR_COLOR}%~${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
+${DARK_GREEN}[${PROMPT_DIR_COLOR}%2~${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
 ${CHAR_ARROW}%f "
 
-RPROMPT="${RPROMPT_TIME_COLOR}%T %f"
+RPROMPT="${DARK_GREEN}${user_prompt}@${host_prompt} : ${RPROMPT_TIME_COLOR}%T %f"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}› %f"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%F{green}%f"
