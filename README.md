@@ -1,2 +1,3 @@
 # ohmyzsh-theme-humblearrogance
-zsh theme
+
+humble arrogance - a minimal zsh theme
