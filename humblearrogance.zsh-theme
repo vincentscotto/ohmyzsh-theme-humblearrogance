@@ -1,3 +1,8 @@
+#    __                    __     __
+#   |  |--.--.--.--------.|  |--.|  |.-----.---.-.----.----.-----.-----.---.-.-----.----.-----.
+#   |     |  |  |        ||  _  ||  ||  -__|  _  |   _|   _|  _  |  _  |  _  |     |  __|  -__|
+#   |__|__|_____|__|__|__||_____||__||_____|___._|__| |__| |_____|___  |___._|__|__|____|_____|
+#                                                                |_____|
 # humble arrogance - a minimal omz theme
 # by vincent scotto
 
@@ -19,6 +24,7 @@ CHAR_ARROW="%F${DARK_GREEN}»"           # ❯ ➜ › »
 local git_prompt='$(git_prompt_info)'
 local user_prompt='%n'
 local host_prompt='%M'
+local dir_prompt='%2~' # %c, %~, %2~
 
 # git prompt info
 git_prompt_info() {
@@ -54,7 +60,7 @@ DASHED_LINE="$(generate_dashes)"
 #${DEFAULT}in
 #${PROMPT_HOST_COLOR}%m@
 PROMPT="${PROMPT_DASHES_COLOR}${DASHED_LINE}%f
-${DARK_GREEN}[${PROMPT_DIR_COLOR}%2~${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
+${DARK_GREEN}[${PROMPT_DIR_COLOR}${dir_prompt}${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
 ${CHAR_ARROW}%f "
 
 RPROMPT="${DARK_GREEN}${user_prompt}@${host_prompt} : ${RPROMPT_TIME_COLOR}%T %f"
