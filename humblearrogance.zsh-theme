@@ -1,6 +1,5 @@
-# humble arrogance - a minimal ohmyzsh theme
+# humble arrogance - a minimal omz theme
 # by vincent scotto
-# MIT License
 
 # theme colors
 PROMPT_DASHES_COLOR="%F{#2f3b54}"       # dashes
