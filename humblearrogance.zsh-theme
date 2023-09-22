@@ -23,7 +23,7 @@ CHAR_ARROW="%F${DARK_GREEN}»"           # ❯ ➜ › »
 
 local git_prompt='$(git_prompt_info)'
 local user_prompt='%n'
-local host_prompt='%M'
+local host_prompt='%m'
 local dir_prompt='%2~' # %c, %~, %2~
 
 # git prompt info
