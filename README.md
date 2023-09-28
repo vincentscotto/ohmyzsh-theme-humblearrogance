@@ -4,4 +4,4 @@
 
 humble arrogance - a minimal zsh theme (_wip_).
 
-<img width="1411" alt="zsh-theme" src="https://github.com/vincentscotto/ohmyzsh-theme-humblearrogance/assets/1539095/535677ab-4132-4abe-9a6f-e5f7b6ff03cf">
+<img width="1540" alt="zsh-theme" src="https://github.com/vincentscotto/ohmyzsh-theme-humblearrogance/assets/1539095/4d448b4a-6ec5-4cce-82a4-1698f972d223">
