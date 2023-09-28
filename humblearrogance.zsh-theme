@@ -63,7 +63,7 @@ PROMPT="${PROMPT_DASHES_COLOR}${DASHED_LINE}%f
 ${DARK_GREEN}[${PROMPT_DIR_COLOR}${dir_prompt}${DARK_GREEN}] ${PROMPT_GIT_COLOR}$git_prompt ${PROMPT_SYMBOL_COLOR}%f
 ${CHAR_ARROW}%f "
 
-RPROMPT="${DARK_GREEN}${user_prompt}@${host_prompt} : ${RPROMPT_TIME_COLOR}%T %f"
+RPROMPT="%{$(echotc UP 1)%}${DARK_GREEN}${user_prompt}@${host_prompt} : ${RPROMPT_TIME_COLOR}%T %f%{$(echotc DO 1)%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}› %f"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%F{green}%f"
